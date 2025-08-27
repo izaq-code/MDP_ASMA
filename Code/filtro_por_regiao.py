@@ -12,7 +12,7 @@ df = pd.read_csv(arquivo, sep=";", low_memory=False)
 # -----------------------------
 # 2) Filtrar diagnóstico
 # -----------------------------
-df_filtrado = df[df["Q068"] == 1]
+df_filtrado = df[df["Q074"] == 1]
 
 # -----------------------------
 # 3) Mapeamento UF -> Nome + Região
