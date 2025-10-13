@@ -1,18 +1,18 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-from matplotlib.backends.backend_pdf import PdfPages
 
 # -----------------------------
 # 1) Leitura dos dados
 # -----------------------------
-arquivo = "./Data/pns_2019.csv"   # ou .xlsx
+arquivo = "./Data/pns_2019.csv"  
 df = pd.read_csv(arquivo, sep=";", low_memory=False)
-# df = pd.read_excel(arquivo)  # se for excel
 
 # -----------------------------
-# 2) Filtrar diagnóstico
+# 2) População total e filtrada
 # -----------------------------
-df_filtrado = df[df["Q074"] == 1]
+total_populacao = len(df)              
+df_filtrado = df[df["Q074"] == 1]      
+total_diagnosticados = len(df_filtrado)
 
 # -----------------------------
 # 3) Mapeamento UF -> Nome + Região
@@ -47,55 +47,72 @@ ufs = {
     53: ("Distrito Federal", "Centro-Oeste"),
 }
 
-# Criar colunas novas no DataFrame
 df_filtrado["UF_nome"] = df_filtrado["V0001"].map(lambda x: ufs.get(x, ("Desconhecido", "Outro"))[0])
 df_filtrado["Regiao"] = df_filtrado["V0001"].map(lambda x: ufs.get(x, ("Desconhecido", "Outro"))[1])
 
 # -----------------------------
-# 4) Contagem por UF e Região (absoluta e relativa)
+# 4) Contagens
 # -----------------------------
-total = len(df_filtrado)
-
 contagem_uf_abs = df_filtrado["UF_nome"].value_counts().sort_values(ascending=False)
-contagem_uf_rel = (contagem_uf_abs / total * 100).round(2)
+contagem_uf_rel_pop = (contagem_uf_abs / total_populacao * 100).round(2)
 
 contagem_regiao_abs = df_filtrado["Regiao"].value_counts().sort_values(ascending=False)
-contagem_regiao_rel = (contagem_regiao_abs / total * 100).round(2)
+contagem_regiao_rel_pop = (contagem_regiao_abs / total_populacao * 100).round(2)
 
 # -----------------------------
-# 5) Criar gráficos e salvar em PDF
+# 5) Criar gráficos e salvar como PNG
 # -----------------------------
-with PdfPages("diagnostico_por_uf_regiao.pdf") as pdf:
-    # Gráfico por UF
-    plt.figure(figsize=(12,6))
-    bars = contagem_uf_abs.plot(kind="bar")
-    plt.title(f"Diagnóstico por Unidade da Federação (UF)\nTotal: {total}")
-    plt.ylabel("Quantidade de casos (absoluta)")
-    plt.xlabel("UF")
-    plt.xticks(rotation=75, ha="right")
 
-    # Colocar rótulos com valores absolutos e relativos
-    for i, v in enumerate(contagem_uf_abs):
-        plt.text(i, v + (v*0.01), f"{v} ({contagem_uf_rel.iloc[i]}%)", 
-                 ha="center", va="bottom", fontsize=8, rotation=90)
-    plt.tight_layout()
-    pdf.savefig()
-    plt.close()
+# ABSOLUTO POR UF
+plt.figure(figsize=(12,6))
+contagem_uf_abs.plot(kind="bar")
+plt.title(f"Diagnóstico por UF (Absoluto)\nTotal diagnosticados: {total_diagnosticados}")
+plt.ylabel("Quantidade de casos")
+plt.xlabel("UF")
+plt.xticks(rotation=75, ha="right")
+for i, v in enumerate(contagem_uf_abs):
+    plt.text(i, v + (v*0.01), str(v), ha="center", va="bottom", fontsize=8, rotation=90)
+plt.tight_layout()
+plt.savefig("uf_absoluto.png", dpi=300)
+plt.close()
 
-    # Gráfico por Região
-    plt.figure(figsize=(8,6))
-    bars = contagem_regiao_abs.plot(kind="bar", color="orange")
-    plt.title(f"Diagnóstico por Região\nTotal: {total}")
-    plt.ylabel("Quantidade de casos (absoluta)")
-    plt.xlabel("Região")
-    plt.xticks(rotation=0)
+# RELATIVO POR UF
+plt.figure(figsize=(12,6))
+contagem_uf_rel_pop.plot(kind="bar", color="green")
+plt.title(f"Diagnóstico por UF (Relativo à População Total)\nPopulação total: {total_populacao}")
+plt.ylabel("Percentual da população (%)")
+plt.xlabel("UF")
+plt.xticks(rotation=75, ha="right")
+for i, v in enumerate(contagem_uf_rel_pop):
+    plt.text(i, v + 0.01, f"{v}%", ha="center", va="bottom", fontsize=8, rotation=90)
+plt.tight_layout()
+plt.savefig("uf_relativo.png", dpi=300)
+plt.close()
 
-    # Colocar rótulos com valores absolutos e relativos
-    for i, v in enumerate(contagem_regiao_abs):
-        plt.text(i, v + (v*0.01), f"{v} ({contagem_regiao_rel.iloc[i]}%)", 
-                 ha="center", va="bottom", fontsize=10)
-    plt.tight_layout()
-    pdf.savefig()
-    plt.close()
+# ABSOLUTO POR REGIÃO
+plt.figure(figsize=(8,6))
+contagem_regiao_abs.plot(kind="bar", color="orange")
+plt.title(f"Diagnóstico por Região (Absoluto)\nTotal diagnosticados: {total_diagnosticados}")
+plt.ylabel("Quantidade de casos")
+plt.xlabel("Região")
+plt.xticks(rotation=0)
+for i, v in enumerate(contagem_regiao_abs):
+    plt.text(i, v + (v*0.01), str(v), ha="center", va="bottom", fontsize=10)
+plt.tight_layout()
+plt.savefig("regiao_absoluto.png", dpi=300)
+plt.close()
 
-print("PDF gerado: diagnostico_por_uf_regiao.pdf")
+# RELATIVO POR REGIÃO
+plt.figure(figsize=(8,6))
+contagem_regiao_rel_pop.plot(kind="bar", color="red")
+plt.title(f"Diagnóstico por Região (Relativo à População Total)\nPopulação total: {total_populacao}")
+plt.ylabel("Percentual da população (%)")
+plt.xlabel("Região")
+plt.xticks(rotation=0)
+for i, v in enumerate(contagem_regiao_rel_pop):
+    plt.text(i, v + 0.01, f"{v}%", ha="center", va="bottom", fontsize=10)
+plt.tight_layout()
+plt.savefig("regiao_relativo.png", dpi=300)
+plt.close()
+
+print("Gráficos salvos como PNG individualmente!")
