@@ -15,6 +15,19 @@
 \usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage[table]{xcolor}
+
+\sisetup{
+  round-mode=places,
+  round-precision=3,
+  detect-weight=true,
+  detect-inline-weight=math,
+  group-separator = {.},
+  output-decimal-marker = {,},
+  table-number-alignment = center
+}
 \hypersetup{
   colorlinks=true,
   urlcolor=blue,
@@ -37,8 +50,9 @@
     \end{center}
 
     \begin{flushright}
-        Isaque Gomes Azevedo \\
-        \texttt{isaquegomes623@gmail.com}
+        \textbf{Autor:} Isaque Gomes Azevedo \\
+        \texttt{isaquegomes623@gmail.com} \\[1.5em]
+        \textbf{Orientador:} Prof. Luis Enrique Zarate Galvez
     \end{flushright}
 
     \vfill
@@ -47,6 +61,9 @@
         2025
     \end{center}
 \end{titlepage}
+
+\pagestyle{plain}
+
 
 \pagestyle{plain}
 
@@ -60,69 +77,90 @@
 % -----------------------------
 % Resumo
 % -----------------------------
+% -----------------------------
+% Resumo (versão revisada)
+% -----------------------------
 \section*{Resumo}
 \addcontentsline{toc}{section}{Resumo}
 \begin{singlespace}
 \noindent
-\textbf{Contexto:} A asma é uma das doenças respiratórias crônicas mais prevalentes no Brasil, com impacto relevante em qualidade de vida, produtividade e uso do sistema de saúde. Evidências sugerem que alimentação, fatores comportamentais, determinantes sociais e acesso aos serviços modulam tanto a ocorrência quanto o controle da doença.
+\textbf{Contexto:}
+A asma é uma doença crônica prevalente e desigual no Brasil. Fatores alimentares e comportamentais, determinantes sociais e acesso aos serviços influenciam ocorrência e controle.
 
-\textbf{Objetivo:} Estimar a prevalência autorreferida de diagnóstico médico de asma na PNS 2019 e investigar associações com padrões de alimentação, estilo de vida, determinantes sociais e acesso/uso de serviços, identificando grupos de maior vulnerabilidade e potenciais gradientes sociais.
+\vspace{0.5em}
+\textbf{Objetivo:}
+Estimar a prevalência autorreferida de diagnóstico médico de asma entre adultos na PNS 2019 e investigar associações com marcadores de alimentação, estilo de vida, determinantes sociais e acesso/uso de serviços, identificando gradientes sociais e grupos vulneráveis. Análises secundárias exploraram a faixa etária 0–30 anos.
 
-\textbf{Métodos:} Inquérito transversal com dados públicos da PNS 2019 (IBGE). População: adultos residentes em domicílios particulares. Desfecho: diagnóstico médico de asma (autorreferido). Exposições: marcadores de alimentação, comportamentos, determinantes sociais e indicadores de acesso/uso. Análises com ponderação amostral e desenho complexo, estimando prevalências e IC95\%. Modelagem: regressão logística survey-ajustada, marginal effects, checagem de multicolinearidade, seleção hierarquizada. Análises de sensibilidade: exclusão de indivíduos com DPOC/bronquite/enfisema, recorte por faixa etária e sexo, redefinição de marcadores alimentares.
+\vspace{0.5em}
+\textbf{Métodos:}
+Inquérito transversal com microdados públicos da PNS 2019 (IBGE), considerando o desenho amostral complexo (pesos, estratos e UPA). O desfecho foi o diagnóstico médico de asma autorreferido. Modelos logísticos hierarquizados (blocos: sociodemográfico; estilo de vida; alimentação; acesso/uso), com efeitos marginais ajustados. Tratamento de dependências do questionário: codificação explícita de “não se aplica” (NSA=0) e imputação parcimoniosa (média no grupo aplicável para variáveis numéricas; moda para categóricas). Sensibilidades: exclusão de DPOC/bronquite/enfisema; recortes por sexo/idade; reclassificações alimentares.
 
-\textbf{Resultados:} Estimativas nacionais e por macrorregião/UF, distribuição segundo sexo, idade e raça/cor, gradientes por escolaridade e renda, diferenças segundo marcadores de dieta, tabagismo e atividade física, associações ajustadas (ORs) com IC95\%, probabilidades preditas e mapas/gráficos regionais. 
+\vspace{0.5em}
+\textbf{Resultados:}
+Foram analisados [N não ponderado] adultos (representando [X] milhões). A prevalência de asma foi de [P\%] (IC95\% [L--U]). Observaram-se gradientes por escolaridade e renda (ex.: baixa vs. alta escolaridade: OR ajustada [OR\_esc], IC95\% [L--U]) e associação com tabagismo atual (OR [OR\_tab], IC95\% [L--U]) e menor atividade física (OR [OR\_af], IC95\% [L--U]). A subanálise 0–30 anos confirmou maior concentração de diagnósticos precoces. Resultados foram estáveis a sensibilidades e à imputação.
 
-\textbf{Discussão:} Achados interpretados à luz das desigualdades sociais em saúde e da literatura sobre fatores de risco/proteção, destacando implicações para o manejo e controle da asma.
+\vspace{0.5em}
+\textbf{Discussão:}
+Achados indicam que condições de vida, comportamentos e acesso/uso de serviços se inter-relacionam na determinação e no manejo da asma, em linha com literatura de determinantes sociais.
 
-\textbf{Implicações:} Subsidiar políticas de prevenção e promoção, qualificar o cuidado na APS/SUS, orientar recursos para grupos/populações mais afetados.
+\vspace{0.5em}
+\textbf{Implicações:}
+Reforço da APS/SUS com protocolos ativos de asma, territorialização do risco, ambientes livres de fumo e promoção de alimentação in natura/atividade física, com monitoramento integrado.
 
 \vspace{\baselineskip}
 \noindent
-\textbf{Palavras-chave:} Asma; alimentação; estilo de vida; determinantes sociais; acesso a serviços de saúde; PNS 2019.
+\textbf{Palavras-chave:} Asma; determinantes sociais; alimentação; estilo de vida; acesso aos serviços de saúde; PNS 2019.
 \end{singlespace}
+\newpage
+
 
 \newpage
 
 % -----------------------------
 % Introdução
 % -----------------------------
+% -----------------------------
+% Introdução (versão revisada)
+% -----------------------------
 \section{Introdução}
-A asma é uma doença inflamatória crônica das vias aéreas, com exacerbações recorrentes de dispneia, sibilos e tosse, associadas à hiperresponsividade brônquica. Além da suscetibilidade genética e ambiental, fatores modificáveis como tabagismo, dieta de baixa qualidade e sedentarismo, bem como determinantes sociais e barreiras de acesso, influenciam tanto o risco quanto o controle da doença. No Brasil, inquéritos nacionais permitem monitorar o perfil epidemiológico e as desigualdades regionais, oferecendo subsídios para intervenções focalizadas.
+A asma é uma doença inflamatória crônica das vias aéreas, caracterizada por exacerbações recorrentes de dispneia, sibilos e tosse, associadas à hiperresponsividade brônquica. Além da suscetibilidade genética e exposições ambientais, fatores modificáveis — como tabagismo, dieta de baixa qualidade e inatividade física — e determinantes sociais (escolaridade, renda, ocupação, raça/cor) influenciam tanto o risco quanto o controle da doença. Barreiras no acesso/uso de serviços de saúde também podem agravar desfechos.
+
+No Brasil, inquéritos nacionais como a Pesquisa Nacional de Saúde (PNS) permitem estimar prevalências e monitorar desigualdades entre regiões e grupos populacionais, oferecendo subsídios para o planejamento em saúde. Embora existam estudos sobre asma e alguns de seus determinantes, ainda são escassas análises que integrem, em um único arcabouço, alimentação, estilo de vida, determinantes sociais e acesso/uso de serviços na PNS 2019, com modelagem hierarquizada e avaliação explícita de dependências do questionário.
+
+\textbf{Objetivo:} estimar a prevalência autorreferida de asma entre adultos na PNS 2019 e investigar associações com padrões alimentares, estilo de vida, determinantes sociais e acesso/uso de serviços, buscando gradientes sociais e grupos vulneráveis. Análises secundárias exploram a concentração de diagnósticos em idades precoces (0–30 anos).
+
 
 % -----------------------------
 % Metodologia
 % -----------------------------
+% -----------------------------
+% Metodologia (versão consolidada)
+% -----------------------------
 \section{Metodologia}
 
-\subsection{Desenho e base de dados}
-Estudo transversal baseado na Pesquisa Nacional de Saúde (PNS) 2019, conduzida pelo IBGE em parceria com o Ministério da Saúde, com amostra probabilística e representatividade nacional para a população adulta. Microdados públicos: \href{https://biblioteca.ibge.gov.br/visualizacao/livros/liv101764.pdf}{IBGE (PNS 2019) – Relatório Metodológico}.
+\subsection{Desenho e fonte de dados}
+Estudo transversal com microdados públicos da PNS 2019 (IBGE/Ministério da Saúde), amostra probabilística e representatividade nacional. As informações metodológicas detalhadas constam no relatório oficial da PNS 2019.
 
-\subsection{População do estudo}
-Incluiu todos os indivíduos com diagnóstico médico autorreferido de asma.
+\subsection{População, elegibilidade e subanálises}
+Incluímos todos os \textbf{adultos (≥18 anos)} com dados válidos para o desfecho e covariáveis essenciais. O desfecho foi o \textbf{diagnóstico médico de asma autorreferido}.
+Como \textbf{subanálise exploratória}, investigamos distribuição etária e concentração de diagnósticos no intervalo 0–30 anos, motivada pela maior incidência em idades precoces.
 
 \subsection{Variáveis e definições}
-\begin{itemize}[noitemsep,topsep=0pt]
-    \item \textbf{Desfecho:} diagnóstico médico de asma (autorreferido).
-    \item \textbf{Exposições principais:}
-    \begin{itemize}[noitemsep]
-        \item \emph{Alimentação}: consumo de frutas/legumes, carne vermelha, bebidas açucaradas e ultraprocessados.
-        \item \emph{Estilo de vida}: tabagismo (atual/ex), consumo de álcool, atividade física no lazer.
-        \item \emph{Determinantes sociais}: sexo, idade, raça/cor, escolaridade, renda domiciliar per capita, ocupação, macrorregião, zona (urbana/rural).
-        \item \emph{Acesso/uso de serviços}: plano de saúde, consulta médica nos últimos 12 meses, uso do SUS, procura por atendimento.
-    \end{itemize}
-\end{itemize}
-
-\subsection{Análise estatística}
-\begin{enumerate}[noitemsep]
-    \item Estatística descritiva ponderada e IC95\%.
-    \item Regressão logística survey-ajustada, com seleção hierárquica de blocos.
-    \item Efeitos marginais e probabilidades preditas.
-    \item Sensibilidade: exclusão de DPOC/bronquite/enfisema, recorte por idade/sexo, redefinição de marcadores alimentares.
-    \item Diagnósticos: multicolinearidade (VIF), pseudo-$R^2$, \emph{goodness-of-fit}.
+\textbf{Desfecho:} asma (autorreferida).
+\par\noindent
+\textbf{Exposições principais (por blocos):}
+\begin{enumerate}[noitemsep, topsep=0pt]
+    \item \textit{Sociodemográficas e contexto:} sexo, idade, raça/cor, escolaridade, renda per capita, ocupação, macrorregião, zona urbano/rural.
+    \item \textit{Estilo de vida:} tabagismo (atual/ex), consumo de álcool, atividade física no lazer.
+    \item \textit{Alimentação:} consumo de frutas/legumes, carnes, bebidas açucaradas e ultraprocessados (itens da PNS com marcadores semanais e no dia anterior).
+    \item \textit{Acesso/uso de serviços:} plano de saúde, consulta nos últimos 12 meses, uso do SUS, procura por atendimento.
 \end{enumerate}
 
-\subsection{Aspectos éticos}
-A PNS possui aprovação ética nacional; microdados públicos e anonimizados.
+\subsection{Plano amostral e ponderação}
+Todas as estimativas consideraram pesos amostrais, estratos e \textit{UPA/PSU} do desenho complexo. As análises foram conduzidas em [\textit{R/Stata/Python}] com pacotes específicos para dados complexos (ex.: \texttt{survey}/\texttt{svy}).
+
+\subsection{Aspectos éticos e reprodutibilidade}
+A PNS possui aprovação ética nacional; microdados são públicos e anonimizados. Código analítico e dicionário de tratamento de dependências/imputação disponíveis em [\textit{repositório a ser informado}] ou sob solicitação.
 
 % -----------------------------
 % Resultados
@@ -150,31 +188,41 @@ A PNS possui aprovação ética nacional; microdados públicos e anonimizados.
 \subsection{População saudável vs. asmática}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{saudaveis_vs_asma_15_65.png}
-    \caption{Comparação entre indivíduos saudáveis e doentes (asma) na faixa etária de 15 a 65 anos – PNS 2019.}
+    \includegraphics[width=0.8\textwidth]{saudaveis_vs_asma_0_30.png}
+    \caption{Comparação entre indivíduos saudáveis e doentes (asma) na faixa etária de 0 a 30 anos – PNS 2019.}
     \label{fig:saudaveis_asma}
 \end{figure}
 
-A Figura~\ref{fig:saudaveis_asma} mostra que a população saudável na faixa etária de 15 a 65 anos é majoritária em comparação com os indivíduos que referiram diagnóstico de asma. Foram identificados aproximadamente \textbf{76 mil saudáveis} contra apenas \textbf{cerca de 4 mil doentes}, evidenciando a baixa prevalência relativa da doença nesse grupo etário.
+A Figura~\ref{fig:saudaveis_asma} mostra que a população saudável na faixa etária de 0 a 30 anos é majoritária em comparação com os indivíduos que referiram diagnóstico de asma. Foram identificados aproximadamente \textbf{19.465 saudáveis} contra apenas \textbf{cerca de 1.188 doentes}, evidenciando a baixa prevalência relativa da doença nesse grupo etário.
 
 \subsection{Distribuição etária dos asmáticos}
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\textwidth]{idade_asma.png}
-    \caption{Distribuição da idade entre os indivíduos com diagnóstico de asma – PNS 2019.}
+    \caption{Distribuição da idade das pessoas com diagnóstico de asma — PNS 2019.}
     \label{fig:idade_asma}
 \end{figure}
 
-A Figura~\ref{fig:idade_asma} apresenta a distribuição da idade das pessoas com asma. Observa-se uma maior concentração de casos entre os 25 e 45 anos, com redução gradual após os 60 anos.
+A Figura~\ref{fig:idade_asma} mostra a distribuição etária dos indivíduos com diagnóstico de asma. 
+Observa-se um pico de frequência nas idades mais jovens, especialmente até os \textbf{10 anos}, seguido por uma queda gradual a partir da adolescência. 
+Esse padrão evidencia que a asma apresenta maior concentração nos primeiros anos de vida, com diminuição progressiva da ocorrência em faixas etárias mais elevadas.
 
-Com base nesses dados, calculamos as seguintes estatísticas descritivas da amostra:
-\begin{itemize}
-    \item \textbf{Média}: aproximadamente \textbf{40 anos}, refletindo a tendência central da população asmática.
-    \item \textbf{Mediana}: cerca de \textbf{38 anos}, indicando que metade dos indivíduos asmáticos tem menos de 38 anos.
-    \item \textbf{Moda}: situada no intervalo dos \textbf{30 a 35 anos}, faixa com maior frequência de asmáticos.
-\end{itemize}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{frequencia_acumulada_simples_asma.png}
+    \caption{Frequência acumulada simples de pessoas com asma por idade — PNS 2019.}
+    \label{fig:frequencia_acumulada_asma}
+\end{figure}
 
-A análise será restrita à população entre \textbf{15 e 65 anos}, eliminando os extremos etários (crianças e idosos acima de 65), de modo a reduzir vieses e garantir maior homogeneidade estatística.
+A Figura~\ref{fig:frequencia_acumulada_asma} apresenta a curva de frequência acumulada simples. 
+Nota-se um crescimento acentuado até aproximadamente os \textbf{30 anos}, quando a curva tende a estabilizar-se. 
+Isso indica que a maior parte dos diagnósticos ocorre até essa idade, representando a fase de maior incidência da doença. 
+Após os 30 anos, a ocorrência de novos casos torna-se rara, predominando indivíduos que já convivem com a condição.
+
+Com base nessas observações, a análise será concentrada na faixa etária de \textbf{0 a 30 anos}. 
+Esse intervalo engloba o período de maior incidência e surgimento da asma, contemplando tanto a infância quanto a transição para a vida adulta. 
+A curva acumulada evidencia que cerca de 90\% dos casos estão concentrados nesse intervalo, reforçando que a inclusão de idades superiores tenderia apenas a adicionar casos residuais, com pouca relevância para a compreensão do padrão de incidência.
 
 \subsection{Modelo conceitual}
 \begin{figure}[H]
@@ -184,217 +232,250 @@ A análise será restrita à população entre \textbf{15 e 65 anos}, eliminando
     \label{fig:mapa}
 \end{figure}
 
-\subsection{Tabela de Dimensões, Aspectos e Atributos}
-\renewcommand{\arraystretch}{1.4}
+\subsection{Tabela de Dimensões e Atributos (base revisada PNS 2019)}
+\renewcommand{\arraystretch}{1.35}
 \setlength{\tabcolsep}{6pt}
-\begin{longtable}{|p{3.8cm}|p{5.2cm}|p{5.2cm}|}
+\begin{longtable}{|p{4cm}|p{11cm}|}
 \hline
-\textbf{Dimensão} & \textbf{Aspectos} & \textbf{Atributos (variáveis da PNS)} \\
+\textbf{Dimensão} & \textbf{Atributos (código – descrição resumida)} \\
 \hline
 \endfirsthead
 \hline
-\textbf{Dimensão} & \textbf{Aspectos} & \textbf{Atributos (variáveis da PNS)} \\
+\textbf{Dimensão} & \textbf{Atributos (código – descrição resumida)} \\
 \hline
 \endhead
 
-\textbf{Acesso/uso de serviços de saúde} & 
-Procura por atendimento, plano de saúde, uso do SUS, consultas médicas & 
-Frequência de consultas nos últimos 12 meses; presença de plano de saúde privado; se procurou atendimento nos últimos 2 semanas; se foi atendido; local de atendimento (SUS ou privado) \\
+% ---------------------- DETERMINANTES SOCIAIS ----------------------
+\textbf{Determinantes sociais e domicílio} &
+A001 – Tipo de domicílio;  
+A002010 – Material predominante nas paredes externas;  
+A003010 – Material predominante no telhado;  
+A004010 – Material predominante no piso;  
+A005010 – Forma de abastecimento de água;  
+A005012 – Ligado à rede pública de água;  
+A009010 – Tipo de água utilizada para beber;  
+A02201 – Presença de animal de estimação;  
+C001 – Número de pessoas no domicílio;  
+C006 – Sexo;  
+C008 – Idade do morador;  
+C009 – Cor ou raça;  
+V0001 – Unidade da Federação;  
+V0022 – Total de moradores;  
+V0026 – Situação censitária (urbano/rural). \\
 \hline
 
-\textbf{Estilo de vida} & 
-Tabagismo, consumo de álcool, prática de atividade física, sono & 
-Fumante atual, ex-fumante, idade de início do tabagismo, consumo de álcool (frequência e quantidade), minutos de atividade física no lazer/trabalho, qualidade do sono \\
+% ---------------------- FATORES AMBIENTAIS ----------------------
+\textbf{Fatores ambientais e contexto} &
+A02305 – Quantos gatos;  
+A02306 – Quantos cachorros;  
+A02307 – Quantas aves;  
+P068 – Frequência de fumo dentro do domicílio. \\
 \hline
 
-\textbf{Alimentação} & 
-Consumo de frutas, legumes, carne vermelha, alimentos ultraprocessados, bebidas açucaradas, amamentação & 
-Porções diárias de frutas/legumes, frequência semanal de carne vermelha e embutidos, consumo de refrigerantes e sucos industrializados, histórico de aleitamento materno exclusivo (0–6 meses) e complementar (6–12 meses) \\
+% ---------------------- ALIMENTAÇÃO ----------------------
+\textbf{Alimentação} &
+P006 – Dias por semana em que come feijão;  
+P00601–P00623 – Consumo de alimentos no dia anterior (grupos alimentares e ultraprocessados);  
+P00901 – Dias comendo verduras/legumes;  
+P01001 – Forma de consumo de verduras;  
+P01101 – Dias comendo carne vermelha;  
+P013 – Dias comendo frango;  
+P015 – Dias comendo peixe;  
+P01601 – Dias tomando suco natural;  
+P018 – Dias comendo frutas;  
+P019 – Vezes que come frutas por dia;  
+P02001 – Dias tomando suco industrializado;  
+P02002 – Dias tomando refrigerante;  
+P02101 – Tipo de suco;  
+P02102 – Tipo de refrigerante;  
+P023 – Dias tomando leite;  
+P02401 – Tipo de leite;  
+P02501 – Dias comendo doces;  
+P02602 – Dias que substitui almoço por lanches. \\
 \hline
 
-\textbf{Determinantes sociais} & 
-Sexo, idade, raça/cor, escolaridade, renda, zona geográfica & 
-Sexo biológico, faixa etária, raça/cor autodeclarada, anos de estudo, renda domiciliar per capita, macrorregião, situação do domicílio (urbano/rural), ocupação principal \\
+% ---------------------- ESTILO DE VIDA ----------------------
+\textbf{Estilo de vida e comportamento} &
+P050 – Fuma atualmente;  
+P051 – Já fumou diariamente;  
+P052 – Já fumou algum produto do tabaco;  
+P053 – Idade de início do tabagismo;  
+P05401–P05416 – Tipo e quantidade de tabaco consumido;  
+P058 – Quantos cigarros fumava por dia/semana;  
+P05901–P05904 – Tempo desde que parou de fumar;  
+P067 – Uso de tabaco sem fumaça;  
+P06701 – Uso de cigarros eletrônicos;  
+P034 – Prática de exercício físico. \\
 \hline
 
-\textbf{Condições clínicas} & 
-Diagnóstico médico prévio de doenças respiratórias e comorbidades & 
-Presença de asma, DPOC, bronquite crônica, enfisema, outras doenças crônicas (hipertensão, diabetes, etc.) \\
+% ---------------------- CONDIÇÕES CLÍNICAS ----------------------
+\textbf{Condições clínicas} &
+Q074 – Diagnóstico médico de asma;  
+Q075 – Idade ao diagnóstico de asma;  
+Q076 – Crise de asma nos últimos 12 meses;  
+Q07601 – Uso de medicamento para asma;  
+Q07704 – Uso de medicamentos orais (2 semanas);  
+Q07708 – Uso de aerossol (bombinha);  
+Q11605 – Diagnóstico de enfisema pulmonar;  
+Q11606 – Diagnóstico de bronquite crônica;  
+Q11607 – Outro diagnóstico pulmonar. \\
 \hline
 
-\textbf{Fatores ambientais} & 
-Exposição à poluição, ambientes livres de fumo, sazonalidade climática & 
-Relato de poluição no domicílio ou vizinhança, presença de fumantes no domicílio, existência de ambientes 100\% livres de fumo, percepção de variação climática que afeta sintomas \\
+% ---------------------- ANTROPOMETRIA ----------------------
+\textbf{Antropometria} &
+P00103 – Peso informado (kg);  
+P00104 – Peso final (kg);  
+P00403 – Altura informada (cm);  
+P00404 – Altura final (cm). \\
 \hline
 
-\textbf{Genética/Predisposição} & 
-Histórico familiar & 
-Histórico de asma ou doenças respiratórias em familiares de primeiro grau \\
+% ---------------------- INFÂNCIA / AMAMENTAÇÃO ----------------------
+\textbf{Infância e amamentação} &
+L01701–L01716 – Introdução alimentar (leite, frutas, vegetais, doces, refrigerantes, etc.);  
+L019 – Recebeu sulfato ferroso. \\
 \hline
 \end{longtable}
 
+\subsection{Tratamento e Padronização dos Dados}
 
+O pré-processamento da base da PNS foi conduzido com foco na coerência lógica do questionário, na padronização das respostas e na eliminação de ambiguidades que pudessem comprometer análises estatísticas e modelos preditivos.
+
+O ponto central foi o tratamento de \textbf{variáveis dependentes}, identificadas a partir do dicionário de dados no campo \textit{“Código da variável dependente”}. Em vez de assumir uma regra fixa (como considerar que a dependência ocorre apenas quando a variável base é igual a 1), o algoritmo realizou uma \textbf{detecção empírica dos valores habilitadores}. Para cada possível valor da variável condicionante, calculou-se a proporção de respostas válidas na variável dependente; os valores com maior consistência de preenchimento foram classificados como ativadores reais da pergunta. Esse procedimento eliminou suposições arbitrárias e garantiu aderência ao padrão concreto de resposta observado na pesquisa.
+
+A partir desse mapeamento, duas regras de padronização foram aplicadas:
+
+\begin{enumerate}
+\item \textbf{Quando a condição de habilitação não era atendida}, a variável dependente recebeu o valor \textbf{0}, representando explicitamente “não se aplica”. Essa codificação evita que a ausência seja interpretada como dado faltante, preservando a lógica do instrumento de coleta.
+
+\item \textbf{Quando a condição de habilitação era atendida, mas a resposta estava ausente}, realizou-se \textbf{imputação orientada ao tipo da variável}: média restrita ao grupo aplicável para variáveis numéricas e moda para variáveis categóricas. Em situações onde não havia dados suficientes no grupo habilitado, utilizou-se uma imputação de fallback (média ou moda global), sempre registrada de forma controlada.
+\end{enumerate}
+
+Para variáveis não dependentes, procedeu-se à padronização de respostas textuais, remoção de marcadores de ausência (\textit{NA}, \textit{nan}, campos vazios) e imputação segundo o mesmo critério (média para numéricos, moda para categóricos).
+
+O resultado é uma base \textbf{completa, coerente e informativamente preservada}, na qual:
+
+\begin{itemize}
+\item “ausência de resposta” não é confundida com “não aplicável”;
+\item as distribuições originais são mantidas sempre que possível;
+\item as imputações não introduzem viés estrutural no padrão de respostas.
+\end{itemize}
+
+Esse tratamento fortalece a robustez das análises subsequentes, evita enviesamentos interpretativos e fornece uma matriz de dados adequada para métodos estatísticos e algoritmos de aprendizagem de máquina, respeitando o fluxo epidemiológico do questionário original.
+
+
+\subsection{Resumo das Variaveis }
+\input{tabelas_resumo.tex}
 
 % -----------------------------
 % Discussão
 % -----------------------------
 \section{Discussão}
-Os achados reforçam desigualdades regionais e sociais na asma, consistentes com a literatura sobre determinantes sociais, papel do tabagismo, sono e dieta. A natureza transversal limita inferência causal; entretanto, a magnitude e consistência dos gradientes sugerem alvos plausíveis para intervenção.
+Este estudo estimou prevalência de asma em [P\%] na população adulta brasileira (PNS 2019) e identificou gradientes sociais (escolaridade/renda/raça-cor), além de associações com comportamentos (tabagismo, atividade física) e marcadores alimentares. Em conjunto, os achados reforçam que condições de vida, rotinas e acesso/uso de serviços moldam a ocorrência e o manejo da asma.
+
+Mecanisticamente, o tabagismo pode exacerbar inflamação das vias aéreas e hiperresponsividade, enquanto padrões alimentares marcados por ultraprocessados e bebidas açucaradas se associam a inflamação sistêmica de baixo grau. Atividade física insuficiente relaciona-se a piores perfis cardiorrespiratórios e maior sintomatologia. Determinantes sociais influenciam exposição a riscos ambientais, condições domiciliares e capacidade de acesso ao cuidado.
+
+Nossos resultados são coerentes com estudos prévios nacionais e internacionais que identificam maior prevalência em grupos socialmente vulneráveis e associações com sono, atividade física e marcadores de dieta. Ao integrar alimentação, estilo de vida, determinantes sociais e acesso/uso de serviços em modelagem hierárquica com desenho amostral complexo, ampliamos a evidência específica para a PNS 2019 e explicitamos o papel da codificação “NSA=0” e de imputações parcimoniosas.
+
+Entre as forças, destacam-se representatividade nacional, consideração do plano amostral, tratamento explícito de dependências do questionário e múltiplas sensibilidades. Entre as limitações, salientamos o caráter transversal (não permite inferência causal), autorrelato do desfecho e possíveis confundidores residuais (apesar do ajuste e diagnósticos). A imputação pode introduzir viés, mitigado por análises alternativas e registro da taxa de imputação.
+
+Programaticamente, os achados sugerem priorização de grupos com menor escolaridade/renda e de territórios mais afetados, combinando ações de cessação do tabagismo, promoção de atividade física e alimentação in natura com qualificação do cuidado na APS/SUS e vigilância territorial.
+
 
 % -----------------------------
-% Conclusão
+% Conclusão (versão revisada)
 % -----------------------------
 \section{Conclusão}
-A PNS 2019 permite delinear o perfil nacional da asma e revelar \emph{quem} mais necessita de políticas de prevenção, diagnóstico e manejo. Priorizar promoção da saúde, reduzir barreiras de acesso e qualificar o cuidado longitudinal podem reduzir desigualdades e melhorar o controle da doença.
+A asma no Brasil apresenta gradientes sociais e associações consistentes com comportamentos e alimentação. Intervenções focadas em grupos de maior vulnerabilidade, reforço da APS, ambientes livres de fumo e promoção de hábitos saudáveis podem reduzir desigualdades e melhorar controle e qualidade de vida.
 
 % -----------------------------
 % Implicações para políticas públicas
 % -----------------------------
 \section{Implicações para políticas públicas}
 \begin{itemize}[noitemsep]
-  \item Fortalecer APS/SUS com protocolos de manejo da asma.
-  \item Foco em grupos vulneráveis: baixa renda/escolaridade, pretos/pardos, regiões com maior prevalência.
-  \item Ambientes escolares e de trabalho livres de fumo e poluentes.
-  \item Monitoramento contínuo e integração com dados administrativos.
+  \item \textbf{APS com protocolos ativos de asma:} implementar plano de autocuidado e revisão medicamentosa semestral para ≥80\% dos asmáticos cadastrados (12 meses; responsável: coord. APS/UBS).
+  \item \textbf{Territorialização do risco:} mapear trimestralmente prevalência autorreferida e internações por asma por UBS e microárea; priorizar visitas domiciliares onde a taxa for ≥P90 regional.
+  \item \textbf{Ambientes livres de fumo:} garantir conformidade ≥90\% em escolas e repartições (inspeções semestrais; saúde+educação+trabalho).
+  \item \textbf{Promoção de hábitos saudáveis:} grupos semanais de atividade física e educação alimentar (NASF/Academia da Saúde), com adesão ≥50\% dos inscritos e manutenção por ≥6 meses.
+  \item \textbf{Monitoramento integrado:} painel unificado (e-SUS/SAE/SIH) com indicadores: prevalência, consultas, uso de medicação inalatória, internações; análise bimestral para realocar recursos.
 \end{itemize}
-
-
 % ----------------------------------------------------------
-% REVISÃO DA LITERATURA (expandida com links)
+% REVISÃO DA LITERATURA — versão organizada por blocos
 % ----------------------------------------------------------
 \section{Revisão da Literatura}
 
-\subsection{Estanislau et al. (2021) -- Jornal de Pediatria}
-\begin{itemize}[label={}, leftmargin=0cm, itemindent=2cm, align=left]
-  \item[\textbf{Objetivo:}] Examinar a associação entre horas de sono e asma atual em adolescentes brasileiros (ERICA).
-  \item[\textbf{Metodologia:}] Inquérito escolar nacional (2013--2014; $n\approx59{,}4$ mil), modelos de regressão Poisson com variância robusta, ajuste para múltiplos confundidores.
-  \item[\textbf{Resultados:}] Maior prevalência de asma em quem dormia $<7$h/noite; PR ajustada $\approx$1{,}17 (IC95\% 1{,}01--1{,}35).
-  \item[\textbf{Principal contribuição:}] Evidencia o sono curto como fator associado à asma na adolescência, sugerindo \emph{sleep hygiene} como componente de manejo.
-  \item[\textbf{Link:}] \href{https://pubmed.ncbi.nlm.nih.gov/32956628/}{PubMed} \,|\, \href{https://doi.org/10.1016/j.jped.2020.07.007}{DOI}
-\end{itemize}
+\noindent
+Esta revisão organiza a evidência em blocos temáticos que dialogam diretamente com o objetivo do estudo: (i) epidemiologia e desigualdades no Brasil; (ii) sono e asma; (iii) estilo de vida e alimentação; (iv) acesso/uso de serviços e manejo; (v) ciência de dados/IA aplicadas à asma; (vi) fenótipo e idade de início; (vii) risco espacial e geoinformação. Em cada bloco, sintetizamos contribuições, limitações e implicações para a modelagem proposta.
 
-\subsection{Finkelstein \& Jeong (2017) -- Ann. NY Acad. Sci.}
-\begin{itemize}[label={}, leftmargin=0cm, itemindent=2cm, align=left]
-  \item[\textbf{Objetivo:}] Personalizar predição precoce de exacerbações de asma com \emph{machine learning}.
-  \item[\textbf{Metodologia:}] Modelos supervisionados em dados clínicos/monitoramento; comparação entre algoritmos.
-  \item[\textbf{Resultados:}] Desempenho promissor (AUCs elevadas em validações internas), viabilizando alertas antecipados.
-  \item[\textbf{Principal contribuição:}] Abre caminho para manejo proativo e intervenções personalizadas baseadas em risco.
-  \item[\textbf{Link:}] \href{https://pubmed.ncbi.nlm.nih.gov/27627195}{PubMed} 
-\end{itemize}
+% ===================== BLOCO 1 =====================
+\subsection{Epidemiologia e desigualdades no Brasil (PNS e estudos correlatos)}
+\paragraph{IBGE (2020) -- PNS 2019 (Relatório).}
+Fonte primária para prevalências e metodologia de inquérito, com escopo nacional e subsídios a recortes por região e determinantes sociais. Útil como base de calibração e \emph{benchmark} para estimativas atuais.
+\href{https://biblioteca.ibge.gov.br/visualizacao/livros/liv101764.pdf}{PDF}
 
-\subsection{Gonçalves, França \& Zarate (2024) -- Brazilian e-Science Workshop}
-\begin{itemize}[label={}, leftmargin=0cm, itemindent=2cm, align=left]
-  \item[\textbf{Objetivo:}] Argumentar sobre a centralidade do \emph{conhecimento de domínio} na construção de modelos.
-  \item[\textbf{Metodologia:}] Ensaio técnico com exemplos aplicados.
-  \item[\textbf{Resultados:}] Falhas de modelagem decorrem da desconexão com o domínio; colaboração interdisciplinar melhora validade.
-  \item[\textbf{Principal contribuição:}] Arcabouço para integrar especialistas e cientistas de dados em saúde.
-  \item[\textbf{Link:}] \href{https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjZ8KyJmsCPAxV7LLkGHcMYE9gQFnoECBgQAQ&url=https%3A%2F%2Fsol.sbc.org.br%2Findex.php%2Fbresci%2Farticle%2Fdownload%2F30591%2F30395%2F&usg=AOvVaw26Lp46JpIKoVVGP4wQQEU7&opi=89978449}{SBC (anais)}
-\end{itemize}
+\paragraph{Menezes et al. (2015) -- J. Bras. Pneumol.}
+Usando a PNS 2013 para adultos, descreve variações por sexo, idade e região, fornecendo linha de base histórica para comparação temporal com a PNS 2019. \href{https://doi.org/10.1590/1980-5497201500060018}{SciELO}
 
-\subsection{Guimarães et al. (2024) -- Brazilian J. Implantology \& Health Sciences}
-\begin{itemize}[label={}, leftmargin=0cm, itemindent=2cm, align=left]
-  \item[\textbf{Objetivo:}] Revisar diagnóstico e tratamento da asma.
-  \item[\textbf{Metodologia:}] Revisão integrativa recente de diretrizes e práticas.
-  \item[\textbf{Resultados:}] Síntese de estratégias diagnósticas e terapias farmacológicas/não farmacológicas.
-  \item[\textbf{Principal contribuição:}] Atualização prática para cenário brasileiro.
-  \item[\textbf{Link:}] \href{https://bjihs.emnuvens.com.br/bjihs/article/view/3228}{Artigo online}
-\end{itemize}
+\paragraph{Ramos, Martins \& Castro (2021) -- Physis.}
+Revisão sistemática de estudos regionais, com importante heterogeneidade entre macrorregiões, apoiando a necessidade de modelagem com \emph{survey design} e estratificações/efeitos contextuais. \href{https://ojs.brazilianjournals.com.br/ojs/index.php/BJHR/article/view/30260/pdf}{Link}
 
-\subsection{Hisinger-Molkånen et al. (2022) -- ERJ Open Research}
-\begin{itemize}[label={}, leftmargin=0cm, itemindent=2cm, align=left]
-  \item[\textbf{Objetivo:}] Relacionar idade ao diagnóstico com características da asma de início adulto.
-  \item[\textbf{Metodologia:}] Estudos populacionais nórdicos, análise de fenótipo e gravidade.
-  \item[\textbf{Resultados:}] Diagnóstico em idade mais avançada associa-se a sintomas mais graves e pior controle.
-  \item[\textbf{Principal contribuição:}] Salienta relevância do diagnóstico precoce para melhor prognóstico.
-  \item[\textbf{Link:}] \href{https://pubmed.ncbi.nlm.nih.gov/36185544}{Pubmed}
-\end{itemize}
+% ===================== BLOCO 2 =====================
+\subsection{Sono e asma}
+\paragraph{Estanislau et al. (2021) -- Jornal de Pediatria.}
+No ERICA (adolescentes; $n\approx 59{,}4$ mil), menor duração de sono ($<7$h/noite) associou-se à asma atual (PR $\approx 1{,}17$; IC95\% 1,01--1,35), sugerindo relevância de \emph{sleep hygiene} em faixas jovens.
+\href{https://pubmed.ncbi.nlm.nih.gov/32956628/}{PubMed} \,|\, \href{https://doi.org/10.1016/j.jped.2020.07.007}{DOI}
 
-\subsection{IBGE (2020) -- PNS 2019 (Relatório)}
-\begin{itemize}[label={}, leftmargin=0cm, itemindent=2cm, align=left]
-  \item[\textbf{Conteúdo:}] Metodologia e resultados sobre saúde, estilos de vida e doenças crônicas no Brasil.
-  \item[\textbf{Utilidade:}] Fonte oficial para estimar prevalência autorreferida de asma e determinantes sociais.
-  \item[\textbf{Link:}] \href{https://biblioteca.ibge.gov.br/visualizacao/livros/liv101764.pdf}{Relatório PNS 2019 (PDF)}
-\end{itemize}
+\paragraph{Meltzer et al. (2019) -- Journal of Asthma.}
+Associa menor tempo de sono a pior controle/maior exacerbação em adolescentes, reforçando o papel de rotinas e hábitos na expressão clínica.
+\href{https://pubmed.ncbi.nlm.nih.gov/31751908}{PubMed}
 
-\subsection{Kaplan et al. (2021) -- JACI: In Practice}
-\begin{itemize}[label={}, leftmargin=0cm, itemindent=2cm, align=left]
-  \item[\textbf{Objetivo:}] Revisar aplicações de IA/ML em pneumologia com foco em asma e DPOC.
-  \item[\textbf{Metodologia:}] Revisão narrativa de avanços e lacunas.
-  \item[\textbf{Resultados:}] Potenciais em imagem, função pulmonar e suporte diagnóstico.
-  \item[\textbf{Principal contribuição:}] Agenda para incorporação responsável de IA no cuidado respiratório.
-  \item[\textbf{Link:}] \href{https://pubmed.ncbi.nlm.nih.gov/33618053/}{PubMed} \,|\, \href{https://doi.org/10.1016/j.jaip.2021.02.014}{DOI}
-\end{itemize}
+% ===================== BLOCO 3 =====================
+\subsection{Estilo de vida e alimentação}
+\paragraph{Lorensia, Suryadinata \& Saputra (2019) -- J. Pharm. Sci. \& Research.}
+Estudo comparativo indica níveis mais baixos de vitamina D em asmáticos e papel potencial da atividade física; embora não seja brasileiro, apoia a inclusão de marcadores de dieta/atividade em modelos populacionais.
+\href{https://www.researchgate.net/profile/Amelia-Lorensia/publication/333745187_Physical_Activity_and_Vitamin_D_Level_in_Asthma_and_Non-Asthma/links/5d01aec64585157d15a6a73e/Physical-Activity-and-Vitamin-D-Level-in-Asthma-and-Non-Asthma.pdf}{PDF}
 
-\subsection{Lorensia, Suryadinata \& Saputra (2019) -- J. Pharm. Sci. \& Research}
-\begin{itemize}[label={}, leftmargin=0cm, itemindent=2cm, align=left]
-  \item[\textbf{Objetivo:}] Avaliar relação entre atividade física, vitamina D e asma.
-  \item[\textbf{Metodologia:}] Estudo comparativo entre asmáticos e não asmáticos.
-  \item[\textbf{Resultados:}] Níveis mais baixos de vitamina D nos asmáticos; papel potencial da atividade física.
-  \item[\textbf{Principal contribuição:}] Sugere interação nutrição–atividade física no fenótipo asmático.
-  \item[\textbf{Link:}] \href{https://www.researchgate.net/profile/Amelia-Lorensia/publication/333745187_Physical_Activity_and_Vitamin_D_Level_in_Asthma_and_Non-Asthma/links/5d01aec64585157d15a6a73e/Physical-Activity-and-Vitamin-D-Level-in-Asthma-and-Non-Asthma.pdf}{PDF (revista)}
-\end{itemize}
+% ===================== BLOCO 4 =====================
+\subsection{Acesso/uso de serviços e manejo clínico}
+\paragraph{Guimarães et al. (2024) -- Braz. J. Implantology \& Health Sciences.}
+Síntese prática sobre diagnóstico e tratamento farmacológico/não farmacológico no contexto brasileiro; útil para interpretar variáveis de acesso e manejo (consulta, uso de SUS, medicação).
+\href{https://bjihs.emnuvens.com.br/bjihs/article/view/3228}{Artigo online}
 
-\subsection{Lual \& Awoke (2021) -- Journal of Asthma and Allergy}
-\begin{itemize}[label={}, leftmargin=0cm, itemindent=2cm, align=left]
-  \item[\textbf{Objetivo:}] Identificar fatores do controle subótimo da asma em adultos.
-  \item[\textbf{Metodologia:}] Estudo transversal com pacientes; regressão multivariada.
-  \item[\textbf{Resultados:}] Baixa adesão, comorbidades e fatores socioeconômicos associados a pior controle.
-  \item[\textbf{Principal contribuição:}] Evidencia determinantes sociais e comportamentais no manejo.
-  \item[\textbf{Link:}] \href{https://pubmed.ncbi.nlm.nih.gov/34497674}{Texto completo}
-\end{itemize}
+\paragraph{Lual \& Awoke (2021) -- Journal of Asthma and Allergy.}
+Mostram que baixa adesão, comorbidades e fatores socioeconômicos associam-se a controle subótimo em adultos, conectando determinantes sociais a desfechos de manejo.
+\href{https://pubmed.ncbi.nlm.nih.gov/34497674}{Texto completo}
 
-\subsection{Meltzer et al. (2019) -- Journal of Asthma}
-\begin{itemize}[label={}, leftmargin=0cm, itemindent=2cm, align=left]
-  \item[\textbf{Objetivo:}] Investigar papel do sono em desfechos de asma em adolescentes.
-  \item[\textbf{Metodologia:}] Estudo observacional com medidas de sono e eventos de asma.
-  \item[\textbf{Resultados:}] Menos horas de sono associadas a pior controle/maior exacerbação.
-  \item[\textbf{Principal contribuição:}] Consolida o sono como alvo de intervenção em jovens com asma.
-  \item[\textbf{Link:}] \href{https://pubmed.ncbi.nlm.nih.gov/31751908}{PubMed} 
-\end{itemize}
+% ===================== BLOCO 5 =====================
+\subsection{Ciência de dados e IA na asma}
+\paragraph{Finkelstein \& Jeong (2017) -- Ann. NY Acad. Sci.}
+Predição precoce de exacerbações via \emph{machine learning}; desempenho promissor em cenários clínicos, indicando potencial para estratificação de risco e alertas.
+\href{https://pubmed.ncbi.nlm.nih.gov/27627195}{PubMed}
 
-\subsection{Menezes et al. (2015) -- J. Bras. Pneumol.}
-\begin{itemize}[label={}, leftmargin=0cm, itemindent=2cm, align=left]
-  \item[\textbf{Objetivo:}] Estimar prevalência de asma em adultos (PNS 2013).
-  \item[\textbf{Metodologia:}] Inquérito populacional representativo.
-  \item[\textbf{Resultados:}] Prevalência variou por sexo, idade e região.
-  \item[\textbf{Principal contribuição:}] Marco inicial para adultos no Brasil, servindo de linha de base.
-  \item[\textbf{Link:}] \href{https://doi.org/10.1590/1980-5497201500060018}{SciELO}
-\end{itemize}
+\paragraph{Kaplan et al. (2021) -- JACI: In Practice.}
+Revisão de aplicações de IA/ML em pneumologia (asma/DPOC): oportunidades em imagem, função pulmonar e suporte diagnóstico; ressalta desafios de implementação responsável.
+\href{https://pubmed.ncbi.nlm.nih.gov/33618053/}{PubMed} \,|\, \href{https://doi.org/10.1016/j.jaip.2021.02.014}{DOI}
 
-\subsection{Ramos, Martins \& Castro (2021) -- \emph{Physis: Revista de Saúde Coletiva}}
-\begin{itemize}[label={}, leftmargin=0cm, itemindent=2cm, align=left]
-  \item[\textbf{Objetivo:}] Revisar prevalência de asma por regiões do Brasil.
-  \item[\textbf{Metodologia:}] Revisão sistemática de estudos regionais.
-  \item[\textbf{Resultados:}] Variabilidade importante entre as cinco regiões.
-  \item[\textbf{Principal contribuição:}] Panorama comparativo regional para informar alocação de recursos.
-  \item[\textbf{Link:}] \href{https://ojs.brazilianjournals.com.br/ojs/index.php/BJHR/article/view/30260/pdf}{link}
-\end{itemize}
+\paragraph{Gonçalves, França \& Zarate (2024) -- Brazilian e-Science Workshop.}
+Enfatiza a centralidade do \emph{conhecimento de domínio} para validade de modelos; sustenta a abordagem hierárquica e a integração de especialistas em saúde na análise de inquéritos.
+\href{https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjZ8KyJmsCPAxV7LLkGHcMYE9gQFnoECBgQAQ&url=https%3A%2F%2Fsol.sbc.org.br%2Findex.php%2Fbresci%2Farticle%2Fdownload%2F30591%2F30395%2F&usg=AOvVaw26Lp46JpIKoVVGP4wQQEU7&opi=89978449}{SBC (anais)}
 
-\subsection{Razavi-Termeh, Sadeghi-Niaraki \& Choi (2021) -- ISPRS IJGI}
-\begin{itemize}[label={}, leftmargin=0cm, itemindent=2cm, align=left]
-  \item[\textbf{Objetivo:}] Mapear áreas suscetíveis à asma com técnicas de mineração de dados.
-  \item[\textbf{Metodologia:}] Modelagem preditiva com dados ambientais/saúde; algoritmos \emph{ensemble}.
-  \item[\textbf{Resultados:}] Mapas identificaram áreas de maior risco em cenário urbano.
-  \item[\textbf{Principal contribuição:}] Integra geoinformação e IA à vigilância epidemiológica.
-  \item[\textbf{Link:}] \href{https://www.mdpi.com/2072-4292/13/16/3222}{Texto}
-\end{itemize}
+% ===================== BLOCO 6 =====================
+\subsection{Fenótipo e idade de início}
+\paragraph{Hisinger-Molkånen et al. (2022) -- ERJ Open Research.}
+Em coortes nórdicas, diagnóstico em idade mais avançada associa-se a sintomas mais graves e pior controle, ressaltando a vantagem do diagnóstico precoce.
+\href{https://pubmed.ncbi.nlm.nih.gov/36185544}{PubMed}
 
-\subsection{Rodrigues et al. (2021) -- Revista Brasileira de Medicina (narrativa)}
-\begin{itemize}[label={}, leftmargin=0cm, itemindent=2cm, align=left]
-  \item[\textbf{Objetivo:}] Descrever abordagem geral da asma (diagnóstico e terapias).
-  \item[\textbf{Metodologia:}] Revisão narrativa.
-  \item[\textbf{Resultados:}] Síntese de diretrizes e desafios práticos no cuidado.
-  \item[\textbf{Principal contribuição:}] Referência didática para clínicos.
-  \item[\textbf{Link:}] \href{https://acervomais.com.br/index.php/medico/article/download/9129/5572/}{PDF (acervo)}
-\end{itemize}
+% ===================== BLOCO 7 =====================
+\subsection{Risco espacial e geoinformação}
+\paragraph{Razavi-Termeh, Sadeghi-Niaraki \& Choi (2021) -- ISPRS IJGI.}
+Uso de mineração de dados e \emph{ensemble} para mapear áreas urbanas suscetíveis, mostrando utilidade de camadas ambientais/territoriais na vigilância.
+\href{https://www.mdpi.com/2072-4292/13/16/3222}{Texto}
 
-\subsection{Xavier et al. (2022) -- Revista Paulista de Pediatria}
-\begin{itemize}[label={}, leftmargin=0cm, itemindent=2cm, align=left]
-  \item[\textbf{Objetivo:}] Avaliar sazonalidade climática e internações por doenças respiratórias em crianças.
-  \item[\textbf{Metodologia:}] Modelo preditivo com dados de hospitalizações.
-  \item[\textbf{Resultados:}] Sazonalidade associada a aumento de internações em períodos específicos.
-  \item[\textbf{Principal contribuição:}] Evidencia papel de fatores climáticos na carga pediátrica (inclui asma).
-  \item[\textbf{Link:}] \href{https://pubmed.ncbi.nlm.nih.gov/37097057}{PubMed}
+% ===================== SÍNTESE CRÍTICA =====================
+\subsection{Síntese crítica e lacunas para este estudo}
+\begin{itemize}[noitemsep, topsep=0pt]
+    \item \textbf{Convergências:} desigualdades sociais e territoriais são recorrentes; comportamentos (tabagismo, atividade física) e marcadores alimentares se associam a pior prognóstico; sono curto agrava desfechos em jovens; manejo depende de acesso/adesão.
+    \item \textbf{Oportunidades:} integração de blocos (sociodemográfico, estilo de vida, alimentação, acesso/uso) em um \textit{mesmo} modelo populacional com \emph{survey design} é menos frequente e traz valor para políticas públicas.
+    \item \textbf{Gaps:} evidência brasileira que conecte marcadores alimentares \emph{e} acesso/uso de serviços em modelagem hierárquica ainda é limitada; há espaço para análises de sensibilidade com dependências do questionário e imputação explicitamente documentadas.
 \end{itemize}
 
 % ----------------------------------------------------------

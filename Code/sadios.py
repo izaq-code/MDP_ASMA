@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 # Carregar os dados
 df = pd.read_csv("./Data/pns_2019.csv", sep=";", low_memory=False)
 
-# Listas de variáveis
+# Variáveis
 saudavel = [
     "Q00201","Q03001","Q055012","Q055013","Q055014","Q055016",
     "Q06307","Q06308","Q06309","Q06310","Q06311","Q068","Q075",
@@ -14,35 +14,38 @@ saudavel = [
 asma = "Q074"
 idade_col = "C008"
 
-# Transformar as colunas em numéricas (ignora valores inválidos)
+# Converter valores para numérico
 df[saudavel] = df[saudavel].apply(pd.to_numeric, errors='coerce')
 df[asma] = pd.to_numeric(df[asma], errors='coerce')
 df[idade_col] = pd.to_numeric(df[idade_col], errors='coerce')
 
-# Filtrar idade entre 15 e 65 anos
-df = df[(df[idade_col] >= 15) & (df[idade_col] <= 65)]
+# Filtrar idade entre 0 e 30 anos
+df = df[(df[idade_col] >= 0) & (df[idade_col] <= 30)]
 
-# Criar coluna Saudavel: True se respondeu 2 (Não) em pelo menos uma pergunta saudável
+# Lógica de saúde: Saudável se respondeu 2 (não) em ao menos uma pergunta
 df['Saudavel'] = df[saudavel].eq(2).any(axis=1)
 
-# Criar coluna DoenteAsma: True se respondeu 1 (Sim) no Q074
+# Lógica de doença (asma): respondeu 1 (sim)
 df['DoenteAsma'] = df[asma] == 1
 
-# Contagem das categorias
+# Contagens
 contagem = {
     "Saudáveis": df['Saudavel'].sum(),
     "Doentes (Asma)": df['DoenteAsma'].sum()
 }
 
-# Criar gráfico de barras
+# ---- PRINT NO CMD ----
+print("\n=== RESULTADO (Idade 0–30) ===")
+for categoria, valor in contagem.items():
+    print(f"{categoria}: {valor}")
+print("==============================\n")
+
+# Gráfico
 plt.figure(figsize=(8,6))
 plt.bar(contagem.keys(), contagem.values(), color=['green','red'], edgecolor='black')
-plt.title("Comparação Saudáveis vs Doentes (Asma) - Idade 15-65 - PNS 2019")
+plt.title("Comparação Saudáveis vs Doentes (Asma) - Idade 0-30 - PNS 2019")
 plt.ylabel("Quantidade de pessoas")
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 
-# Salvar como PNG
-plt.savefig("saudaveis_vs_asma_15_65.png", dpi=300, bbox_inches='tight')
-
-# Mostrar gráfico
+plt.savefig("saudaveis_vs_asma_0_30.png", dpi=300, bbox_inches='tight')
 plt.show()
