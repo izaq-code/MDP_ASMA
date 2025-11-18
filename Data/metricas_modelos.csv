@@ -1,0 +1,4 @@
+model,accuracy,precision,recall,f1,roc_auc
+DecisionTree,0.9184,0.0623,0.542,0.1117,0.9214
+KNN,0.9197,0.0611,0.521,0.1094,0.8333
+RandomForest,0.8997,0.0691,0.7689,0.1267,0.9359
